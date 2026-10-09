@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Studio Website</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f5ef;
+            color: #172b2b;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px #00000010;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1f5c4d;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #172b2b;
+            margin-left: 18px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #1f8b68;
+        }
+
+        .hero {
+            padding: 70px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-content,
+        .hero-image {
+            width: 50%;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #1f5c4d;
+        }
+
+        .hero p {
+            color: #5c6c68;
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 8px solid #dce96c;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #1f5c4d;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin: 5px 5px 5px 0;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #123d32;
+        }
+
+        .stats {
+            background: #1f5c4d;
+            color: white;
+            padding: 30px 7%;
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stats h3 {
+            font-size: 22px;
+        }
+
+        section {
+            padding: 65px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #5c6c68;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px #00000008;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #1f5c4d;
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #5c6c68;
+            margin-bottom: 15px;
+        }
+
+        .card a {
+            color: #1f5c4d;
+            font-weight: bold;
+        }
+
+        .awards {
+            background: #e9eddf;
+        }
+
+        .award-item {
+            background: white;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-icon {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 15px;
+            background: #dce96c;
+            color: #1f5c4d;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 28px;
+        }
+
+        .contact {
+            background: #dce96c;
+            text-align: center;
+            border-radius: 25px;
+            margin: 0 7% 50px;
+            padding: 45px 20px;
+        }
+
+        .contact h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #172b2b;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 850px) {
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0;
+                font-size: 14px;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding-top: 40px;
+            }
+
+            .hero-content,
+            .hero-image {
+                width: 100%;
+            }
+
+            .stats {
+                flex-direction: column;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">COMMUNITY STUDIO</div>
+
+        <nav>
+            <a href="#about">About Us</a>
+            <a href="#programs">Programs</a>
+            <a href="#awards">Awards</a>
+            <a href="#media">Media</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p>IDEAS INTO IMPACT</p>
+
+            <h1>
+                Good Work.<br>
+                Real Stories.<br>
+                <span>Lasting Impact.</span>
+            </h1>
+
+            <p>
+                We bring people, programs and stories together
+                to create meaningful change in our community.
+            </p>
+
+            <a href="#programs" class="btn">
+                Explore Programs
+            </a>
+
+            <a href="#about" class="btn">
+                About Us
+            </a>
+        </div>
+
+        <div class="hero-image">
+            <!-- Keep 13887.jpg in the same folder as index.html -->
+            <img src="13887.jpg"
+                 alt="Our website planning notebook">
+        </div>
+    </section>
+
+    <!-- Highlights -->
+    <div class="stats">
+        <div>
+            <h3>People First</h3>
+            <p>Community initiatives</p>
+        </div>
+
+        <div>
+            <h3>Real Stories</h3>
+            <p>Sharing our achievements</p>
+        </div>
+
+        <div>
+            <h3>Working Together</h3>
+            <p>Building a better future</p>
+        </div>
+    </div>
+
+    <!-- About Us -->
+    <section id="about">
+        <div class="section-title">
+            <h2>About Us</h2>
+            <p>Learn about our mission and our community.</p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Our Mission</h3>
+                <p>
+                    To provide opportunities, support and useful
+                    resources for people in our community.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Our Vision</h3>
+                <p>
+                    To build a community where everyone can
+                    learn, grow and achieve their goals.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Our Values</h3>
+                <p>
+                    We believe in teamwork, creativity,
+                    honesty and positive change.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Programs -->
+    <section id="programs">
+        <div class="section-title">
+            <h2>Our Programs</h2>
+            <p>Discover the activities we offer.</p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Learning & Workshops</h3>
+                <p>
+                    Educational activities and workshops
+                    to develop new skills.
+                </p>
+                <a href="#contact">Learn More →</a>
+            </div>
+
+            <div class="card">
+                <h3>Community Projects</h3>
+                <p>
+                    Projects that encourage people to
+                    work together and make a difference.
+                </p>
+                <a href="#contact">Learn More →</a>
+            </div>
+
+            <div class="card">
+                <h3>Media & Storytelling</h3>
+                <p>
+                    Sharing photos, videos and stories
+                    about our community activities.
+                </p>
+                <a href="#media">View Media →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards and Achievements -->
+    <section id="awards" class="awards">
+        <div class="section-title">
+            <h2>Awards & Achievements</h2>
+            <p>Celebrating our success and milestones.</p>
+        </div>
+
+        <div class="award-item">
+            <h3>Community Achievement</h3>
+            <p>Add your project achievements here.</p>
+        </div>
+
+        <div class="award-item">
+            <h3>Awards & Recognition</h3>
+            <p>Add award names and years here.</p>
+        </div>
+
+        <div class="award-item">
+            <h3>Media Recognition</h3>
+            <p>Add news coverage and media highlights here.</p>
+        </div>
+    </section>
+
+    <!-- Media -->
+    <section id="media">
+        <div class="section-title">
+            <h2>Media Gallery</h2>
+            <p>Explore our photos, videos and updates.</p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <h3>📸 Photo Gallery</h3>
+                <p>View photographs of events and activities.</p>
+            </div>
+
+            <div class="card">
+                <h3>▶️ Video Gallery</h3>
+                <p>Watch our latest videos and highlights.</p>
+            </div>
+
+            <div class="card">
+                <h3>📰 News & Updates</h3>
+                <p>Read the latest news from our community.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team">
+        <div class="section-title">
+            <h2>Our Team</h2>
+            <p>Meet the people who make our work possible.</p>
+        </div>
+
+        <div class="cards">
+            <div class="card team-card">
+                <div class="team-icon">👥</div>
+                <h3>Program Team</h3>
+                <p>
+                    Organizing programs and community projects.
+                </p>
+            </div>
+
+            <div class="card team-card">
+                <div class="team-icon">📷</div>
+                <h3>Media Team</h3>
+                <p>
+                    Creating photos, videos and digital content.
+                </p>
+            </div>
+
+            <div class="card team-card">
+                <div class="team-icon">🤝</div>
+                <h3>Support Team</h3>
+                <p>
+                    Helping people and coordinating activities.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+
+        <p>
+            Have a question or want to work with us?
+            We would love to hear from you.
+        </p>
+
+        <a href="mailto:hello@example.com" class="btn">
+            Send Us an Email
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            &copy; <span id="year"></span> Community Studio.
+            All Rights Reserved.
+        </p>
+    </footer>
+
+    <script>
+        // Automatically display the current year
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
